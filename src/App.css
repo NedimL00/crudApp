@@ -32,6 +32,10 @@ button, input, textarea {
 	outline: inherit;
 }
 
+input:hover, textarea:hover {
+  cursor: text;
+}
+
 body {
   background: var(--body-bg-image);
   background-size: cover;
