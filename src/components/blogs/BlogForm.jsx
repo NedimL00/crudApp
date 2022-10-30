@@ -75,7 +75,7 @@ function BlogForm({handleAdd, blogEdit, setBlogEdit, handleUpdate}) {
 
 
   return (
-    <div className='form-wrapper'>
+    <div className='form-wrapper glass-look'>
       <form className='blog-form' onSubmit={handleSubmit}>
         <h1>Blog App</h1>
 
