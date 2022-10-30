@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,500&display=swap');
+@import url(./variables.css);
 
 
 :root {
@@ -8,6 +9,7 @@
   --clr-red: #f17d77;
   --clr-black: #1A181B;
   --clr-blue: #2E5266;
+  --clr-darkBlue: #0E2A46;
 }
 
 *, *::before, *::after {
@@ -31,11 +33,25 @@ button, input, textarea {
 }
 
 body {
+  background: var(--body-bg-image);
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   font-family: 'Open Sans', sans-serif;
+  color: var(--clr-white);
+  overflow: hidden;
+}
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
+.glass-look {
+  background: rgba(255,255,255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 .sidebar {
   z-index: 999;
@@ -44,7 +60,7 @@ body {
   right: 0;
   height: 100vh;
   width: 100%;
-  background-color: var(--clr-gray);
+  background-color: var(--clr-darkBlue);
   padding: 3rem;
   transition: transform .6s cubic-bezier(.05,.7,.38,.98);
 }
@@ -52,7 +68,7 @@ body {
 .sidebar-toggle {
   position: fixed;
   z-index: 1000;
-  right: 5%;
+  right: 6%;
   top: 1%;
   margin-top: 1rem;
   font-size: 1.5rem;
@@ -64,6 +80,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 999px;
+  border: 2px solid var(--clr-red);
   cursor: pointer;
 }
 
@@ -107,12 +124,13 @@ body {
 
 .sidebar li:hover {
   font-size: 2rem;
-  border-bottom: 2px solid var(--clr-black);
+  border-bottom: 2px solid var(--clr-white);
 }
 
 .container {
-  padding: 3rem;
+  padding: 1rem;
   height: 100%;
+  width: 100%;
   transition: width .6s cubic-bezier(.05,.7,.38,.98);
 }
 
@@ -123,13 +141,12 @@ body {
 }
 
 .form-wrapper {
-  background-color: var(--clr-white);
   border-radius: 1rem;
   padding: 1rem 1.2rem;
   margin: 0 auto;
   box-shadow: 5px 10px 30px 0px rgba( 0,0,0,0.3);
   margin-bottom: 2rem;
-  width: min(100%,1000px);
+  width: min(100%,800px);
 }
 
 .blog-form {
@@ -144,7 +161,10 @@ body {
   background-color: #fff;
   padding: 1rem;
   border-radius: 1rem;
+  color: var(--clr-darkBlue);
+  font-weight: 600;
 }
+
 
 .warning-message {
   border: 5px solid var(--clr-red);
@@ -156,6 +176,7 @@ body {
 .input-holder {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
 }
@@ -163,7 +184,7 @@ body {
 .input-holder input[name="title"], input[name="author"] {
   height: 3rem;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 
@@ -174,9 +195,14 @@ body {
 }
 
 .btn-submit {
-  background-color: var(--clr-blue);
-  color: var(--clr-white);
+  background-color: var(--clr-white);
+  color: var(--clr-darkBlue);
   font-size: 1.4rem;
+}
+
+.btn-submit:hover {
+  background-color: var(--clr-darkBlue);
+  color: var(--clr-white);
 }
 
 .empty-blogs {
@@ -187,11 +213,10 @@ body {
   display: grid;
   place-items: center;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(100%,1fr));
 }
 
 .card {
-  background-color: var(--clr-white);
   border-radius: 1rem;
   padding: 1rem;
   display: flex;
@@ -209,11 +234,12 @@ body {
 }
 
 .card-title:hover {
-  border-bottom-color: black;
+  border-bottom-color: var(--clr-white);
 }
 
 .card-content {
   margin: 1rem 0;
+  height: 100%;
   overflow-wrap: break-word;
 }
 
@@ -223,7 +249,7 @@ body {
   margin: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--clr-white);
 }
 
 .card-btn-wrapper {
@@ -235,8 +261,9 @@ body {
   padding: 0.3rem 0.5rem;
   border-radius: 0.6rem;
   font-weight: 600;
-  transition: padding .2s ease-in-out;
+  transition: all .3s ease-in-out;
 }
+
 .card-btn:hover {
   padding: 0.3rem 0.6rem;
 }
@@ -246,12 +273,21 @@ body {
 }
 
 .card-btn-edit {
+  background-color: var(--clr-white);
+  color: var(--clr-darkBlue);
+}
+.card-btn-edit:hover {
   background-color: var(--clr-green);
   color: var(--clr-black);
 }
+
 .card-btn-delete {
+  background-color: var(--clr-white);
+  color: var(--clr-red);
+}
+.card-btn-delete:hover {
   background-color: var(--clr-red);
-  color: var(--clr-black);
+  color: var(--clr-darkBlue);
 }
 
 @keyframes btnClick {
@@ -268,14 +304,16 @@ body {
 
 
 
-@media (min-width:1024px) {
+@media (min-width:768px) {
 
   .sidebar {
     width: 30%;
     box-shadow: -5px 0px 10px 5px rgba(0, 0, 0, 0.3);
+    border-left: 1px solid var(--clr-gray);
   }
 
   .container {
+    padding: 3rem;
     width: 100%;
   }
 
@@ -283,5 +321,30 @@ body {
     width: 70%;
   }
 
+  .input-holder {
+    flex-direction: row;
+  }
+  .card-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
 
 }
+
+
+@media (min-width:1024px) {
+
+  .card-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+
+}
+
+@media (min-width:2000px) {
+  :root {
+    font-size: 20px;
+  }
+
+
+}
+
+

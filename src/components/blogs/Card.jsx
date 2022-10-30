@@ -4,7 +4,7 @@ function Card({blog, handleDelete, handleEdit}) {
 
 
   return (
-    <div className='card'>
+    <div className='card glass-look'>
       <h1 className='card-title'>{blog.title}</h1>
       <p className='card-content'>{blog.content}</p>
       <p className='card-author'>- {blog.author}</p>

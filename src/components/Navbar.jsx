@@ -17,7 +17,7 @@ function Navbar() {
     <>
       <span className='sidebar-toggle' onClick={handleSidebar}>{open ? ">" : "<"}</span>
       
-      <nav style={{transform:`${open? 'translateX(0%)' : 'translateX(110%)'}`}} className='sidebar'>
+      <nav style={{transform:`${open? 'translateX(0%)' : 'translateX(140%)'}`}} className='sidebar'>
 
 
 
