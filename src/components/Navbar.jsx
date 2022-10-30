@@ -26,6 +26,7 @@ function Navbar() {
             <span>Blogs App</span>
           </div>
           <ul>
+            {/* List items are not wrapped in Link tags because they are not redirecting anywhere */}
             <li>Home</li>
             <li>Dashboard</li>
             <li>Settings</li>
